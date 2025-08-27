@@ -1,0 +1,34 @@
+import React, { createContext, useState, useEffect } from 'react';
+
+export const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('katalogueUser');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  const login = (userData) => {
+    setUser(userData);
+    localStorage.setItem('katalogueUser', JSON.stringify(userData));
+    if (userData.token) {
+      localStorage.setItem('katalogueToken', userData.token);
+    }
+  };
+
+  const logout = () => {
+    setUser(null);
+    localStorage.removeItem('katalogueUser');
+    localStorage.removeItem('katalogueToken');
+  };
+
+  return (
+    <AuthContext.Provider value={{ user, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};

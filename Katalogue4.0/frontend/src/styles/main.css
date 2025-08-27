@@ -1,0 +1,51 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #2a4d2a;
+  margin: 0;
+  padding: 20px;
+}
+
+h2 {
+  color: #3a6e3a;
+}
+
+button {
+  background-color: #2a4d2a;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+button:hover {
+  background-color: #3a6e3a;
+}
+
+input, select, textarea {
+  display: block;
+  margin: 8px 0 16px 0;
+  padding: 8px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.error {
+  color: red;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
